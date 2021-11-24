@@ -1,0 +1,75 @@
+const navigation = useNavigation()
+        const [value, onChangeText] = React.useState(5);
+        const [name, setName] = useState('')
+
+        return (
+
+
+            < SafeAreaView style={styles.SafeAreaView} >
+                <View style={styles.viewOne}  >
+
+                    <Text style={styles.titleone}>Verify your phone number</Text>
+                    <View style={styles.viewOnePadding}>
+                        <Text style={styles.explainOne}>WhatsApp will send an SMS message to verify your phone number.</Text>
+                        <Text style={styles.explainOne}>Enter your country code and phone number:</Text>
+                    </View>
+                    <View style={{ top: 40, width: "90%", right: -12 }}  >
+                        <Text style={{ left: 100, top: 35, fontSize: 18, fontWeight: "600" }}>Select to Country</Text>
+                        <PhoneInput
+
+
+
+
+                            placeholder=" "
+
+
+
+
+
+                            textContainerStyle={styles.textInput}
+                            keyboardType="number-pad"
+
+
+                            containerStyle={{
+                                backgroundColor: 'transparent',
+                            }}
+
+                        />
+
+
+                        <TextInput style={{ backgroundColor: "transparent", height: 40, width: 150, left: 75, fontSize: 15, top: 6, fontWeight: "600" }}
+
+                            keyboardType='phone-pad'
+
+
+
+
+                            placeholder="(604) 333-3333"
+                            placeholderTextColor='gray'
+                            maxLength={value}
+                            onChangeText={(text) => setName({ text })}
+                        //value={name}
+
+
+
+
+                        />
+
+                    </View>
+                </View>
+                <View style={styles.viewTwo}>
+                    <TouchableOpacity onPress={() => navigation.navigate("OTP", {
+                        hamza: name
+                    })}
+
+
+
+                    >
+                        <Text style={styles.nextstyle}>NEXT</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity >
+                        <Text style={styles.smsexplain}>Carrier SMS charges may apply</Text>
+                    </TouchableOpacity>
+                </View>
+            </SafeAreaView >
+        )
